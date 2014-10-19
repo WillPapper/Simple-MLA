@@ -1,0 +1,287 @@
+//
+// Simple MLA
+//
+// A simple style for MLA publications.
+// Modified from Simple APA by William Papper (http://papper.me/)
+//
+// CHANGE THE VALUE BELOW TO YOUR LAST NAME:
+$last-name="Lastname"
+//
+// For MLA formatting, you should use:
+// # for the title block
+// ## for a centered title (if any) after the title block
+// ### for the Works Cited page
+// #### for the citations on the Works Cited page
+
+// Visit http://www.ulyssesapp.com/styles
+// for full reference
+//
+
+//
+// Document & Layout Settings
+//
+document-settings {
+	page-inset-top:    1in;	page-inset-inner:  1in
+	page-inset-bottom: 1in;	page-inset-outer:  1in
+	
+	two-sided:		no
+	page-binding:	left
+
+	page-number-format: $last-name + " %p"
+	page-number-reset: none
+	page-number-style: decimal
+
+	footnote-enumeration:	per-section
+	footnote-placement:		end-of-page
+	footnote-style:			decimal
+}
+area-header {
+	content: page-number
+	text-alignment: right
+}
+
+//
+// Commonly used values
+//
+$mark-color =			#FEFECC
+$black =				#000000
+$light-grey =			#cccccc
+$cool-blue = 			#3875d7
+
+$indent =				0.5in
+$font-size =			12pt
+$line-height =			220%
+
+//
+// Default Typography
+//
+defaults {
+	font-family:	"Times New Roman"
+	font-size:		$font-size
+	line-height:	$line-height
+	
+	text-alignment: left
+	hyphenation:	yes
+}
+
+//
+// Basic Non-Text-Area Page Layout
+// 
+area-footnotes {
+	divider-length:		0pt
+	divider-spacing:	0pt
+	top-spacing:		0pt
+	anchor-alignment:	left
+	anchor-inset:		-0.5in
+	margin-left:		-0.4in
+}
+
+inline-footnote paragraph {
+	first-line-indent:	0pt
+}
+
+//
+// Reusable styles
+//
+@code {
+	font-family:	"Menlo"
+	font-size:		10pt
+ 	// Reset all traits to normal, since code blocks can appear anywhere
+	font-weight:	normal
+	font-slant:		normal
+}
+
+//
+// Headers
+//
+heading-all {
+	keep-with-following:	true
+	text-alignment: 		left
+}
+
+heading-1 {
+	style-title:	"Title Block"	
+}
+
+heading-2 { 
+	style-title:	"Centered Title"
+	text-alignment:	center		
+}
+
+heading-3 {
+	style-title:	"Works Cited"	
+	page-break: before
+	text-alignment: center
+}
+
+heading-4 {
+	style-title:	"Citations"
+	margin-left: $indent
+	first-line-indent: 0in - $indent
+}
+
+
+//
+// Paragraph styles
+//
+paragraph {
+	style-title:		"Paragraph"
+	first-line-indent:	$indent
+}
+
+paragraph-divider {
+	page-break:		none
+	visibility:		hidden
+}
+
+paragraph-figure {
+	margin-top:		$line-height
+	margin-bottom:	$line-height
+	
+	text-alignment:	center
+}
+
+//
+// Block styles
+//
+block-all {
+	margin-left:	$indent
+}
+
+block-code : @code {
+	style-title:	"Codeblock"	
+	font-size:		10pt
+}
+
+block-code paragraph {
+	text-alignment:			left
+	first-line-indent:		0pt
+	hyphenation:			no
+	default-tab-interval:	4em
+}
+
+block-quote {
+	style-title:	"Blockquote"
+	margin-left: 	$indent
+}
+
+block-quote paragraph {
+	first-line-indent:	0pt
+}
+
+block-quote paragraph+paragraph {
+	first-line-indent:	$indent
+}
+
+block-raw {
+	// kills raw source blocks
+	visibility:	hidden
+}
+
+block-comment {
+	visibility:	hidden
+}
+
+
+//
+// List styles
+//
+list-all {
+	margin-left:	$indent
+}
+
+list-all list-all {
+	// No extra spacings between nested ordered and unordered lists
+	margin-top:		0pt;
+	margin-bottom:	0pt;
+}
+
+list-ordered {
+	// Simulates tab stop justified right
+	enumeration-format:	"%d."
+	text-inset:		2em;
+}
+
+list-ordered list-ordered {
+	// Simulates tab stop justified right
+	enumeration-format:	"%*%d"
+	text-inset:		4em;
+}
+
+list-ordered list-ordered list-ordered {
+	// Simulates tab stop justified right
+	enumeration-format:	"%*.%d"
+	text-inset:		6em;
+}
+
+list-unordered {
+	enumeration-format:	"•"
+	text-inset:		1.5em;
+}
+
+
+//
+// Inline styles
+//
+inline-strong {
+	style-title:		"Strong"	
+	font-weight:		bold
+}
+
+inline-emphasis {
+	style-title:		"Emphasis"	
+	font-slant: 		italic;
+}
+
+inline-mark {
+	style-title:		"Mark"
+	background-color:	$mark-color
+}
+
+inline-citation {
+	style-title:		"Inline Cite"	
+	font-slant:			italic;
+}
+
+inline-code : @code {
+	style-title:		"Inline Code"	
+}
+
+inline-link {
+	style-title:		"Link"
+	font-color:			$cool-blue
+	underline:			single
+	underline-color: 	$cool-blue
+}
+
+inline-comment {
+	visibility:	hidden;
+}
+
+inline-delete {
+	// deletes deletions
+	visibility:	hidden;
+}
+
+inline-annotation {
+	background-color:	$mark-color
+}
+
+inline-annotation:anchor {
+	background-color:	#ffffff
+}
+
+inline-raw {
+	// kills raw source
+	visibility:	hidden;
+}
+
+
+//
+// Ulysses specific stuff
+// By default, we are hiding tags (##) etc.
+//
+ulysses-tag {
+	visibility:	hidden
+}
+
