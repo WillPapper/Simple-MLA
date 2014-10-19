@@ -3,7 +3,7 @@ Simple-MLA
 
 The Simple MLA style for Ulysses III
 ------------------------------------
-Simple MLA formatting, modified from Simple APA by William Papper.
+A Ulysses III style for simple MLA formatting by William Papper. The style was originally modified from Simple APA.
 
 Note that you must change the $last-name value at the top of the document to your last name for page numbering to work.
 
