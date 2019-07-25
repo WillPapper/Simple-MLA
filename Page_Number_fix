@@ -38,6 +38,7 @@ document-settings {
 area-header {
 	content: page-number
 	text-alignment: right
+	top-spacing: 0.5in
 }
 
 //
